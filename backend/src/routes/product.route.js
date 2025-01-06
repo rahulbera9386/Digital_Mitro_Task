@@ -1,5 +1,5 @@
 import express from "express";
-import { createProduct } from "../controller/product.controller";
+import { createProduct } from "../controller/product.controller.js";
 
 
 
