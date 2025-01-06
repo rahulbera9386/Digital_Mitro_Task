@@ -1,6 +1,7 @@
 import cloudinary from 'cloudinary';
 import path from 'path';
 import dotenv from 'dotenv';
+import dataUri from "datauri/parser.js"
 
 dotenv.config();
 
@@ -9,23 +10,18 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
+ const dUri=new dataUri();
 const uploadImage = async (file) => {
   try {
-    if (!file || !file.originalname || !file.buffer) {
-      throw new Error('Invalid file object');
-    }
+    
 
-    const fileExtension = path.extname(file.originalname).toString();
-    if (!fileExtension) {
-      throw new Error('File does not have a valid extension');
-    }
+    const fileData = dUri.format(path.extname(file.originalname).toString(),file.buffer);
+    
 
     
-    const base64Data = file.buffer.toString('base64');
-    const dataUri = `data:image/${fileExtension.slice(1)};base64,${base64Data}`;
+  
 
-    const result = await cloudinary.uploader.upload(dataUri, {
+    const result = await cloudinary.uploader.upload(fileData, {
       folder: 'Digital_Mitro',
     });
 

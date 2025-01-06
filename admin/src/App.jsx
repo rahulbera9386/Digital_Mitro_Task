@@ -1,16 +1,9 @@
+import { Outlet } from "react-router-dom";
 
-import {Outlet} from "react-router-dom"
-
-
-const App=() =>{
+export default function App() {
   return (
-    <div className="app-container">
-    
-    <main>
-      <Outlet/> 
-    </main>
-    
-  </div>
+    <div className="app container">
+      <Outlet/>
+    </div>
   )
 }
-export default App;
