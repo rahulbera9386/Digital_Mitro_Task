@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import helmet from "helmet"
 import cors from "cors"
 import morgan from "morgan"
-
+import dbConnection from "./database/dbConnection.js";
 
 const app=express();
 const port=process.env.PORT || 9090;
@@ -27,5 +27,6 @@ app.use(morgan("dev"))
 
 
 app.listen(port,()=>{
-    console.log(`Server is running successfully on port:${port}`)
+    console.log(`Server is running successfully on port:${port}`);
+    dbConnection()
 })
