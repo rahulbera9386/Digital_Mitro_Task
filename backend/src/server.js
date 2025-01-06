@@ -4,6 +4,11 @@ import helmet from "helmet"
 import cors from "cors"
 import morgan from "morgan"
 import dbConnection from "./database/dbConnection.js";
+import productRouter from "./routes/product.route.js"
+
+
+
+
 
 const app=express();
 const port=process.env.PORT || 9090;
@@ -24,7 +29,7 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(morgan("dev"))
 
-
+app.use("/api/product",productRouter);
 
 app.listen(port,()=>{
     console.log(`Server is running successfully on port:${port}`);
