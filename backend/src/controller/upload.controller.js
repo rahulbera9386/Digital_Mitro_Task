@@ -4,7 +4,7 @@ const uploadProduct=async(req,res)=>{
     try{
         const file=req.file;
         const imageUrl=await uploadImage(file);
-        return res.status(200).json({message:"Image upload successfully",success:true,error:false});
+        return res.status(200).json({message:"Image upload successfully",success:true,error:false,data:imageUrl});
 
 
     }
