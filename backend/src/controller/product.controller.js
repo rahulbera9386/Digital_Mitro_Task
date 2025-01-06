@@ -70,4 +70,30 @@ catch(error){
 }
 }
 
-export { createProduct ,getAllProduct};
+
+
+const updateProduct=async(req,res)=>{
+  try{
+
+    const {productId,name,description,image,price}=req.body;
+    const product=await ProductModel.findById(productId);
+   const updatedFields={};
+   if (name) updateFields.name = name;
+   if (price) updateFields.price = price;
+   if (description) updateFields.description = description;
+   if (imageUrl) updateFields.imageUrl = imageUrl;
+   if(Object.keys(updatedFields).length===0)
+   {
+    return res.status(400).json({message:"No fields to update",success:false,error:true})
+   }
+   const updatedData=await ProductModel.findByIdAndUpdate(productId,updatedFields,{new:true});
+   return res.status(200).json({message:"Product Updated Successfully"})
+
+  }
+  catch(error)
+  {
+    return res.status(500).json(({message:"Err while trying to update product",success:false,error:true}))
+  } 
+}
+
+export { createProduct ,getAllProduct,updateProduct};
