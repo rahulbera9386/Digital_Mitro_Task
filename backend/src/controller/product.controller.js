@@ -76,22 +76,27 @@ const updateProduct=async(req,res)=>{
   try{
 
     const {productId,name,description,image,price}=req.body;
+    if(!productId)
+    {
+      return res.status(400).json({message:"productId not defined",success:false,error:true})
+    }
     const product=await ProductModel.findById(productId);
-   const updatedFields={};
+   const updateFields={};
    if (name) updateFields.name = name;
    if (price) updateFields.price = price;
    if (description) updateFields.description = description;
-   if (imageUrl) updateFields.imageUrl = imageUrl;
-   if(Object.keys(updatedFields).length===0)
+   if (image) updateFields.imageUrl = image;
+   if(Object.keys(updateFields).length===0)
    {
     return res.status(400).json({message:"No fields to update",success:false,error:true})
    }
-   const updatedData=await ProductModel.findByIdAndUpdate(productId,updatedFields,{new:true});
-   return res.status(200).json({message:"Product Updated Successfully"})
+   const updatedData=await ProductModel.findByIdAndUpdate(productId,updateFields,{new:true});
+   return res.status(200).json({message:"Product Updated Successfully",success:true,error:false})
 
   }
   catch(error)
   {
+    console.log(error)
     return res.status(500).json(({message:"Err while trying to update product",success:false,error:true}))
   } 
 }
