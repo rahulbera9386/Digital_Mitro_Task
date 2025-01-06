@@ -1,9 +1,28 @@
 import express from "express";
 import dotenv from "dotenv"
+import helmet from "helmet"
+import cors from "cors"
+import morgan from "morgan"
+
 
 const app=express();
 const port=process.env.PORT || 9090;
-dotenv.config({})
+dotenv.config({});
+
+const corsOptions={
+    origin:[
+        process.env.USER_FRONTEND_URL
+    ],
+    methods:["GET","POST","PUT","DELETE"],
+    allowedHeaders:["Contendt-Type","Authorization"],
+    credentials:true
+}
+//Middlewares
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cors(corsOptions));
+app.use(helmet());
+app.use(morgan("dev"))
 
 
 
