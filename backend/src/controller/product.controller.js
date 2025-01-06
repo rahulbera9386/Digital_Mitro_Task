@@ -101,4 +101,23 @@ const updateProduct=async(req,res)=>{
   } 
 }
 
-export { createProduct ,getAllProduct,updateProduct};
+
+
+
+const deleteProduct=async(req,res)=>{
+  try{
+    const {productId}=req.body;
+    if(!productId)
+    {
+      return res.status(400).json({message:"product id is not defined",success:false,error:true})
+    }
+    const deleteProduct=await ProductModel.findByIdAndDelete(productId)
+    return res.status(200).json({message:"Product Deleted Successfully",success:true,error:false})
+
+  }
+  catch(error)
+  {
+    return res.status(500).json({messsage:"There is an error while trying to delete products"})
+  }
+}
+export { createProduct ,getAllProduct,updateProduct,deleteProduct};
