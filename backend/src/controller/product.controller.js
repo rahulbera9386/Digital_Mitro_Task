@@ -57,4 +57,17 @@ return res.status(200).json({message:"Product Created Successfully",success:true
   }
 };
 
-export { createProduct };
+
+
+const getAllProduct=async(req,res)=>{
+try{
+  const allProducts=await ProductModel.find().sort({createdAt:-1})
+  return res.status(200).json({message:"All Products Found Sucessfully",success:true,error:false,data:allProducts})
+
+}
+catch(error){
+  return res.status(500).json({message:"There is an error while trying to find products",success:false,error:true});
+}
+}
+
+export { createProduct ,getAllProduct};
