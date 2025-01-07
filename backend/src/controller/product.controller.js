@@ -76,16 +76,22 @@ const updateProduct=async(req,res)=>{
   try{
 
     const {productId,name,description,image,price}=req.body;
+    console.log(req.body)
     if(!productId)
     {
       return res.status(400).json({message:"productId not defined",success:false,error:true})
     }
     const product=await ProductModel.findById(productId);
-   const updateFields={};
+   const updateFields={
+    name:"",
+    description:'',
+    price:"",
+    image:[]
+   };
    if (name) updateFields.name = name;
    if (price) updateFields.price = price;
    if (description) updateFields.description = description;
-   if (image) updateFields.imageUrl = image;
+   if (image) updateFields.image = image;
    if(Object.keys(updateFields).length===0)
    {
     return res.status(400).json({message:"No fields to update",success:false,error:true})

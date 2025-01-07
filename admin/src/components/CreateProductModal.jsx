@@ -63,6 +63,7 @@ const handleSubmit=async(e)=>{
         //navigate("/dashboard/product")
         close();
         fetchProducts()
+        toast.success("Image Upload Successfull")
       }
       else
       {
@@ -130,8 +131,15 @@ const handleSubmit=async(e)=>{
               <label className="block mb-1 font-medium">Image:</label>
               <input type="file" accept="image/*" name="image" className="w-full border rounded p-2" onChange={handleImageChange}/>
             </div>
-            <div></div>
-          </div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {data.image.map((img, index) => (
+                <img key={index} src={img} alt="Product" className="w-16 h-16 object-cover rounded" />
+              ))}
+            </div>
+            </div>
+            
+          
+          
           <button type="submit" className="w-full bg-blue-700 mt-4 rounded-md text-2xl font-medium text-white p-1">Submit</button>
         </form>
       </div>

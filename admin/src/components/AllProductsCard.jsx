@@ -1,10 +1,13 @@
 import { useState } from "react";
 import DeleteProductCard from "./DeleteProductCard";
+import UpdateCard from "./UpdateCard";
 
 const AllProductsCard = ({ products,fetchProducts }) => {
   const [productId, setProductId] = useState("");
   const [isDeleteOpen,setIsDeleteOpen]=useState(false);
-  console.log("productId",productId)
+  const [isEditOpen,setIsEditOpen]=useState(false)
+  //console.log("productId",productId);
+  const [editId,setEditId]=useState("")
 
   
   return (
@@ -31,8 +34,8 @@ const AllProductsCard = ({ products,fetchProducts }) => {
 
             <div className="flex justify-between items-center mt-4">
               <button
-                onClick={() => setProductId(product._id)}
-                className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition-all duration-200"
+                onClick={() => {setEditId(product._id);setIsEditOpen(true)}}
+                className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition-all duration-200" 
               >
                 Edit
               </button>
@@ -50,6 +53,11 @@ const AllProductsCard = ({ products,fetchProducts }) => {
 isDeleteOpen && (
     <DeleteProductCard close={()=>setIsDeleteOpen(false)} data={productId} fetchProducts={fetchProducts}/>
 )
+      }
+      {
+        isEditOpen &&(
+          <UpdateCard close={()=>setIsEditOpen(false)} data={editId} fetchProducts={fetchProducts}/>
+        )
       }
     </div>
   );

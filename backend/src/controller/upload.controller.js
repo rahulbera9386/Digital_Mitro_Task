@@ -15,6 +15,7 @@ const uploadProduct=async(req,res)=>{
     }
     catch(error)
     {
+        console.log(error)
         return res.status(500).json({message:"There is an error while trying to upload image"})
     }
 }
