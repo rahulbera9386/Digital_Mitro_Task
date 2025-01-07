@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+
 import Auth from "../layout/Auth";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -8,10 +8,7 @@ import Product from "../pages/Product";
 import PrivateRoute from "../protectedRoute/PrivateRoute";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
+  
   {
     path: "/auth",
     element: <Auth />,
