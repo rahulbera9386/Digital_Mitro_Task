@@ -6,7 +6,7 @@ import axios from "axios";
 import Axios, { summaryApi } from './../api/summaryApi.js';
 import { toast } from 'sonner';
 //import { useNavigate } from 'react-router-dom';
-const CreateProductModal = ({ close }) => {
+const CreateProductModal = ({ close ,fetchProducts}) => {
 const [data,setData]=useState({
     name:"",
     description:"",
@@ -61,7 +61,8 @@ const handleSubmit=async(e)=>{
           image:[]
         })
         //navigate("/dashboard/product")
-        close()
+        close();
+        fetchProducts()
       }
       else
       {

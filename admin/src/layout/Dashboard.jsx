@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
-      <aside className="w-64 bg-gray-600/90 text-white">
+      <aside className="w-64 bg-gray-600/90 text-white fixed left-0 h-screen">
         <div className="p-6 text-2xl font-bold border-b border-gray-700 text-center tracking-wide">
           Digital Mitro
         </div>
@@ -20,7 +20,7 @@ const Dashboard = () => {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1  bg-white">
+      <main className="flex-1  bg-white ml-64">
         <div className="shadow-md mb-4 p-6">
           <p className="text-center font-medium text-2xl">Dashboard</p>
         </div>
