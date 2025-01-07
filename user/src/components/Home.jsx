@@ -8,7 +8,7 @@ import Deals from './Deals'
 import Testimonials from './Testimonials'
 import About from './About'
 import Sale from './Sale'
-import News from './News'
+
 import Client from './Client'
 import Footer from './Footer'
 
@@ -31,7 +31,7 @@ const Home = () => {
       <Testimonials/>
       <About/>
       <Sale/>
-      <News/>
+  
       <Client/>
       <Footer/>
     </div>
