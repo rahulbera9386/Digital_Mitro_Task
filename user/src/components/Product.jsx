@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 
 const Product = () => {
-const dispatch=useDispatch()
+const dispatch=useDispatch();
+const {products}=useSelector(state=>state.product)
 
 const Base_Url=import.meta.env.VITE_BACKEND_URL;
-console.log(Base_Url)
+//console.log(Base_Url)
 
 const fetchProducts=async()=>{
     try{
@@ -28,7 +29,7 @@ const fetchProducts=async()=>{
 }
 useEffect(()=>{
 fetchProducts()
-},[])
+},[dispatch])
 
 
 
@@ -38,7 +39,7 @@ fetchProducts()
     <h1 className='text-center text-4xl font-semibold text-orange-500'>All Products</h1>
     <div className='w-[113px] h-1 shadow-md rounded-md bg-orange-500 mx-auto mt-2'></div>
     <div className='mt-8'>
-        <ProductCard />
+        <ProductCard fetchProducts={fetchProducts} products={products}/>
 
     </div>
     </div>

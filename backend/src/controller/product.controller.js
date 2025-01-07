@@ -128,4 +128,45 @@ const deleteProduct=async(req,res)=>{
     return res.status(500).json({messsage:"There is an error while trying to delete products"})
   }
 }
-export { createProduct ,getAllProduct,updateProduct,deleteProduct};
+
+
+
+
+
+const getProductDetailsById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const productDetails = await ProductModel.findById(id);
+
+    if (!productDetails) {
+      return res.status(404).json({
+        message: "Product not found",
+        success: false,
+        error: true
+      });
+    }
+
+    return res.status(200).json({
+      message: "Product details fetched successfully",
+      success: true,
+      data: productDetails
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error while getting product details",
+      success: false,
+      error: true,
+      errorMessage: error.message
+    });
+  }
+};
+
+
+
+
+
+
+
+export { createProduct ,getAllProduct,updateProduct,deleteProduct,getProductDetailsById};

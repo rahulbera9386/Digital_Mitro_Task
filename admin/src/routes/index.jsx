@@ -7,50 +7,41 @@ import Dashboard from "../layout/dashboard";
 import Product from "../pages/Product";
 import PrivateRoute from "../protectedRoute/PrivateRoute";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/auth",
+        element: <Auth />,
+        children: [
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+        ],
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            path: "product",
+            element: <Product />,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
-
-
-
-const router=createBrowserRouter([
-    {
-        path:"/",
-        element:<App/>,
-        children:[
-            {
-                path:"/auth",
-                element:<Auth/>,
-                children:[
-                    {
-                        path:"login",
-                        element:<Login/>
-                    },
-                    {
-                        path:"register",
-                        element:<Register/>
-                    }
-                ]
-            },
-            {
-                path:"/dashboard",
-                element:
-                (
-                    <PrivateRoute>
-<Dashboard/>
-                    </PrivateRoute>
-                
-                ),
-                children:[
-                    {
-                        path:"product",
-                        element:<Product/>
-                    }
-                ]
-            }
-        ]
-        
-    }
-
-])
-
-
-export default router
+export default router;

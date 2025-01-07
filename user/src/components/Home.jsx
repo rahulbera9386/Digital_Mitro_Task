@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import Hero from './Hero'
 import Features from './Features'
 
-import Products from './Products'
+
 import Deals from './Deals'
 import Testimonials from './Testimonials'
 import About from './About'
@@ -26,7 +26,7 @@ const Home = () => {
         
       </div>
       <Features/>
-      <Products/>
+
       <Deals/>
       <Testimonials/>
       <About/>
