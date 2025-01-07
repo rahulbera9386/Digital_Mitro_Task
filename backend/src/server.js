@@ -38,6 +38,10 @@ app.use("/api/product",productRouter);
 app.use("/api/file",uploadRouter);
 app.use("/api/user",userRouter)
 
+
+app.get("/",(_,res)=>{
+    res.json({message:"Backend Running"})
+})
 app.listen(port,()=>{
     console.log(`Server is running successfully on port:${port}`);
     dbConnection()
