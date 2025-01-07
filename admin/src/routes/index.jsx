@@ -3,7 +3,7 @@ import App from "../App";
 import Auth from "../layout/Auth";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Dashboard from "../layout/dashboard";
+import Dashboard from "../layout/Dashboard";
 import Product from "../pages/Product";
 import PrivateRoute from "../protectedRoute/PrivateRoute";
 
