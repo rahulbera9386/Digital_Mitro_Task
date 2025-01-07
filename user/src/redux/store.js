@@ -11,9 +11,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authSlice from "./auth-slice";
-import orgEventsSlice from "./event-organizer-events"
-import eventSlice from "./all-events"
-import dashboardSlice from "./dashboard"
+
+import productSlice from "./product"
 
 const persistConfig = {
   key: "root",
@@ -23,7 +22,7 @@ const persistConfig = {
 
 
 
-const rootReducer = combineReducers({auth:authSlice,orgEvent:orgEventsSlice,event:eventSlice,dashboard:dashboardSlice});
+const rootReducer = combineReducers({auth:authSlice,product:productSlice});
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
