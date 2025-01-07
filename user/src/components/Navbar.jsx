@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaCartShopping } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 const navbarItems = ['Home', 'About', 'Services', 'Contact'];
 
@@ -34,6 +35,7 @@ const Navbar = () => {
               <p className="text-lg text-white hover:text-orange-500">{item}</p>
             </li>
           ))}
+          <Link to="/products" className='text-white hover:text-orange-500'>Product</Link>
         </ul>
       </div>
       
