@@ -19,6 +19,26 @@ const summaryApi={
     login:{
         url:"/api/user/login",
         method:"post"
+    },
+    upload_image:{
+        url:"/api/file/upload",
+        method:"post"
+    },
+    create_product:{
+        url:"/api/product/create-product",
+        method:"post"
+    },
+    all_products:{
+        url:"/api/product/products",
+        method:"get"
+    },
+    update_product:{
+        url:"/api/product/update-product",
+        method:"put"
+    },
+    delete_product:{
+        url:"/api/product/delete-product",
+        method:"delete"
     }
 
 }

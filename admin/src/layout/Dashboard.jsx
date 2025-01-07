@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -20,9 +20,14 @@ const Dashboard = () => {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1 p-8 bg-white shadow-lg rounded-tl-xl">
+      <main className="flex-1  bg-white">
+        <div className="shadow-md mb-4 p-6">
+          <p className="text-center font-medium text-2xl">Dashboard</p>
+        </div>
 
-        <Outlet />
+        <div className="m-4">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

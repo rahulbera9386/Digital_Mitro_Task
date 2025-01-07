@@ -38,7 +38,7 @@ localStorage.setItem("adminToken",data.token)
           password: "",
         });
        
-        // navigate("/dashboard");
+        navigate("/dashboard/product");
       } else {
         toast.error(data.message);
       }

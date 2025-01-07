@@ -21,7 +21,7 @@ const uploadImage = async (file) => {
     
   
 
-    const result = await cloudinary.uploader.upload(fileData, {
+    const result = await cloudinary.uploader.upload(fileData.content, {
       folder: 'Digital_Mitro',
     });
 
