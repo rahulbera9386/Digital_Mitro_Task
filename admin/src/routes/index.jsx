@@ -10,35 +10,33 @@ import PrivateRoute from "../protectedRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App/>,
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
     children: [
       {
-        path: "/auth",
-        element: <Auth />,
-        children: [
-          {
-            path: "login",
-            element: <Login />,
-          },
-          {
-            path: "register",
-            element: <Register />,
-          },
-        ],
+        path: "login",
+        element: <Login />,
       },
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
-        children: [
-          {
-            path: "product",
-            element: <Product />,
-          },
-        ],
+        path: "register",
+        element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "product",
+        element: <Product />,
       },
     ],
   },
